@@ -112,7 +112,7 @@ impl Socket {
         Self::bind_internal(socket, config)
     }
 
-    fn bind_internal(socket: UdpSocket, config: Config) -> Result<Self> {
+    pub fn bind_internal(socket: UdpSocket, config: Config) -> Result<Self> {
         Ok(Socket {
             handler: ConnectionManager::new(
                 SocketWithConditioner::new(socket, config.blocking_mode)?,
